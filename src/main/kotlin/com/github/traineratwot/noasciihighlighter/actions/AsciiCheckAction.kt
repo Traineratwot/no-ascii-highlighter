@@ -9,37 +9,39 @@ import org.apache.commons.lang.StringEscapeUtils.escapeHtml
 
 
 public class AsciiCheckAction : AnAction() {
+
     override fun actionPerformed(e: AnActionEvent) {
         val editor: Editor? = e.getData(PlatformDataKeys.EDITOR)
         val selectedText = editor!!.selectionModel.selectedText
         if (selectedText != null) {
+            var found = false
             val txt = StringBuilder()
             val lines = selectedText.split("\n")
             for (line in lines) {
                 val chars = line.toCharArray()
                 for (char in chars) {
-                   val check = char.code
+                    val check = char.code
                     print("$char ")
                     println(check)
                     if (check <= 127) {
                         txt.append(char.toString())
                     } else {
+                        found = true
                         txt.append("""|[${char}]|""")
                     }
                 }
                 txt.append("\n")
             }
-                //русский
-                三
-                三
-                三
-                三
+            //русский
             val text = escapeHtml(txt.toString());
-            val text2 =text.replace("""\|\[(.+?)\]\|""".toRegex(), """<span style="color:red;">$1</span>""")
+            val text2 = text.replace("""\|\[(\&.+?)\]\|""".toRegex(), """<span style="color:red;">$1</span>""")
             println(text)
             println(text2)
-            Messages.showMessageDialog(text2, "Ascii", Messages.getInformationIcon())
+            if (found) {
+                Messages.showMessageDialog(text2, "Ascii", Messages.getWarningIcon())
+            } else {
+                Messages.showMessageDialog(text2, "Ascii", Messages.getInformationIcon())
+            }
         }
-
     }
 }

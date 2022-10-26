@@ -15,4 +15,11 @@
         <listener class="com.github.traineratwot.noasciihighlighter.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
     </applicationListeners>
+	<actions>
+		<action id="com.github.traineratwot.noasciihighlighter.actions.AsciiCheckAction" class="com.github.traineratwot.noasciihighlighter.actions.AsciiCheckAction" text="AsciiCheckAction"
+				description="Check Ascii simbolst from selected">
+			<add-to-group group-id="CodeMenu" anchor="after" relative-to-action="InspectCodeInCodeMenuGroup"/>
+			<keyboard-shortcut keymap="$default" first-keystroke="alt A"/>
+		</action>
+	</actions>
 </idea-plugin>
