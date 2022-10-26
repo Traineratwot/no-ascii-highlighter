@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.traineratwot.noasciihighlighter.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.traineratwot.noasciihighlighter.MyBundle
 
 class MyApplicationService {
 
