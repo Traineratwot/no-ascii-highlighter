@@ -6,15 +6,15 @@
     <version>0.0.1</version>
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyProjectService"/>
-    </extensions>
+<!--    <extensions defaultExtensionNs="com.intellij">-->
+<!--        <applicationService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyApplicationService"/>-->
+<!--        <projectService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyProjectService"/>-->
+<!--    </extensions>-->
 
-    <applicationListeners>
-        <listener class="com.github.traineratwot.noasciihighlighter.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
-    </applicationListeners>
+<!--    <applicationListeners>-->
+<!--        <listener class="com.github.traineratwot.noasciihighlighter.listeners.MyProjectManagerListener"-->
+<!--                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>-->
+<!--    </applicationListeners>-->
 	<actions>
 		<action id="com.github.traineratwot.noasciihighlighter.actions.AsciiCheckAction" class="com.github.traineratwot.noasciihighlighter.actions.AsciiCheckAction" text="AsciiCheckAction"
 				description="Check Ascii simbolst from selected">
