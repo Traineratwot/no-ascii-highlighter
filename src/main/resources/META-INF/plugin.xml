@@ -1,9 +1,9 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.traineratwot.noasciihighlighter</id>
-    <name>no-ascii-highlighter</name>
+    <name>No Ascii Highlighter</name>
     <vendor>traineratwot</vendor>
-
+    <version>0.0.1</version>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
@@ -13,6 +13,6 @@
 
     <applicationListeners>
         <listener class="com.github.traineratwot.noasciihighlighter.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
     </applicationListeners>
 </idea-plugin>

@@ -1,16 +1,12 @@
 package com.github.traineratwot.noasciihighlighter.listeners
 
-import com.intellij.openapi.components.service
-import com.intellij.openapi.project.Project
-import com.intellij.openapi.project.ProjectManagerListener
-import com.github.traineratwot.noasciihighlighter.services.MyProjectService
+import com.github.traineratwot.noasciihighlighter.MyBundle
+import com.intellij.openapi.vfs.newvfs.BulkFileListener
+import com.intellij.openapi.vfs.newvfs.events.VFileEvent
 
-internal class MyProjectManagerListener : ProjectManagerListener {
-
-    override fun projectOpened(project: Project) {
-        project.service<MyProjectService>()
-
-        System.getenv("CI")
-            ?: TODO("Don't forget to remove all non-needed sample code files with their corresponding registration entries in `plugin.xml`.")
+internal class MyProjectManagerListener : BulkFileListener {
+    override fun after(events: MutableList<out VFileEvent>) {
+        println(MyBundle.message("applicationService"))
     }
+
 }
