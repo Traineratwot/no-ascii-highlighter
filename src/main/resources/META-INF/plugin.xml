@@ -3,7 +3,7 @@
     <id>com.github.traineratwot.noasciihighlighter</id>
     <name>No Ascii Highlighter</name>
     <vendor>traineratwot</vendor>
-    <version>0.0.1</version>
+    <version>1.0.1</version>
     <depends>com.intellij.modules.platform</depends>
 	<resource-bundle>messages.MyBundle</resource-bundle>
 <!--    <extensions defaultExtensionNs="com.intellij">-->
