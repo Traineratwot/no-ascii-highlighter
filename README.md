@@ -20,6 +20,7 @@ The plugin will help you find all non-ascii characters.
 1) select some text
 2) alt + a
 3) see result
+4) You can replace selected text
 
 <!-- Plugin description end -->
 
