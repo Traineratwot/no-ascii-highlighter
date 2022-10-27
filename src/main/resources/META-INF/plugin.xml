@@ -5,7 +5,7 @@
     <vendor>traineratwot</vendor>
     <version>0.0.1</version>
     <depends>com.intellij.modules.platform</depends>
-
+	<resource-bundle>messages.MyBundle</resource-bundle>
 <!--    <extensions defaultExtensionNs="com.intellij">-->
 <!--        <applicationService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyApplicationService"/>-->
 <!--        <projectService serviceImplementation="com.github.traineratwot.noasciihighlighter.services.MyProjectService"/>-->

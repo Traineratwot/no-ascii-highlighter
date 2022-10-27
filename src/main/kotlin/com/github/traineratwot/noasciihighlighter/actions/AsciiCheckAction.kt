@@ -1,5 +1,6 @@
 package com.github.traineratwot.noasciihighlighter.actions
 
+import com.github.traineratwot.noasciihighlighter.AsciiTranslit
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
@@ -35,13 +36,31 @@ public class AsciiCheckAction : AnAction() {
             //русский
             val text = escapeHtml(txt.toString());
             val text2 = text.replace("""\|\[(\&.+?)\]\|""".toRegex(), """<span style="color:red;">$1</span>""")
-            println(text)
-            println(text2)
             if (found) {
-                Messages.showMessageDialog(text2, "Ascii", Messages.getWarningIcon())
+                val answer: Int = Messages.showDialog(
+                    text2,
+                    "Ascii",
+                    arrayOf(Messages.getCancelButton(),Messages.getYesButton()),
+                    0,
+                    Messages.getWarningIcon()
+                )
+                if(answer===1){
+                    replaceText(e)
+                }
             } else {
                 Messages.showMessageDialog(text2, "Ascii", Messages.getInformationIcon())
             }
+
+
         }
+
+
     }
+    private fun replaceText(e: AnActionEvent){
+        val editor: Editor? = e.getData(PlatformDataKeys.EDITOR)
+        val selectedText = editor!!.selectionModel.selectedText ?: return
+        println(AsciiTranslit(selectedText).toString())
+    }
+
+
 }
