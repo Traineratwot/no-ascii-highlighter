@@ -1,5 +1,7 @@
 package com.github.traineratwot.noasciihighlighter
 
+import java.text.Normalizer
+
 class AsciiTranslit {
     private val text: String
 
@@ -10,24 +12,24 @@ class AsciiTranslit {
     public fun getLetters(): MutableMap<String, String> {
         val letters: MutableMap<String, String> = HashMap()
         letters["А"] = "A"
-        letters["B"] = "В"
+        letters["В"] = "B"
         letters["Е"] = "E"
         letters["Ё"] = "E"
         letters["М"] = "M"
         letters["О"] = "O"
         letters["Р"] = "P"
-        letters["С"] = "С"
-        letters["К"] = "К"
+        letters["С"] = "C"
+        letters["К"] = "K"
         letters["Т"] = "T"
+        letters["Н"] = "H"
         letters["а"] = "a"
-        letters["в"] = "в"
         letters["е"] = "e"
         letters["ё"] = "e"
         letters["к"] = "k"
         letters["м"] = "m"
         letters["о"] = "o"
         letters["р"] = "p"
-        letters["с"] = "с"
+        letters["с"] = "c"
         return letters
     }
 
@@ -46,6 +48,9 @@ class AsciiTranslit {
     }
 
     override fun toString(): String {
-        return toTranslit(text)
+        val regex = "\\p{InCombiningDiacriticalMarks}+".toRegex()
+        val temp = Normalizer.normalize(text, Normalizer.Form.NFD)
+        val temp2 = regex.replace(temp, "")
+        return toTranslit(temp2)
     }
 }
